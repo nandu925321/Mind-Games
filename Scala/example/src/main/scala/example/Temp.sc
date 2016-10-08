@@ -18,3 +18,25 @@ def sqrt(x:Double):Double = sqrtIter(1.0,x)
 
 //call
 sqrt(3e-20)
+val s: List[Int] = List(1)
+s.tail
+val xs: List[Int] = List(1, 1, 1, 1)
+def sum(xs: List[Int]): Int = {
+  def loop( acc:Int,xs:List[Int]):Int={
+    if(xs.isEmpty)  acc else loop(acc+xs.head,xs.tail)
+  }
+  loop(0,xs)
+}
+sum(xs)
+
+
+ def max(xs: List[Int]): Int = {
+  def maxIter(a: Int, xs: List[Int]): Int = {
+    if (xs.isEmpty) a
+    else  a.max(maxIter(xs.head, xs.tail))
+  }
+  maxIter(xs.head, xs.tail)
+}
+
+max(xs)
+
