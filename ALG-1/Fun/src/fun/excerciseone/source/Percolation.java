@@ -74,13 +74,29 @@ public class Percolation {
 			
 		}
 	}
-
+	// call union here?
 	public void open(int x, int y) {
+	validate(x,y);
+	int index = getIndexFromCoordinates(x, y);
+	if( !isOpen[index] )
+	{
+		isOpen[index] = true;
+		//check edges
+		if(y>1 && isOpen(x, y-1))
+		{
+			int leftSide = getIndexFromCoordinates(x, y-1);
+			percolation.union(index, leftSide);
+			fullness.union(index, leftSide);
+		}
 		
+		
+	}
+	
 	}
 
 	public boolean isOpen(int row, int col) {
-		return false;
+		int index = getIndexFromCoordinates(row, col);
+		return isOpen[index];
 	}
 
 	public boolean isFull(int row, int col) {
