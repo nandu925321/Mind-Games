@@ -10,7 +10,24 @@ def gcd_naive(a, b):
 
     return current_gcd
 
+def better(a,b):
+	default_gcd = 1
+	
+	small=min(a,b)
+	big=max(a,b)
+	i=0
+	while(True):
+		rem = big % small
+		if(rem==0):
+			if(small>default_gcd):
+				default_gcd=small
+			break
+		big=small
+		small=rem
+		
+	return default_gcd
+
 if __name__ == "__main__":
-    input = sys.stdin.read()
+    input = sys.stdin.readline()
     a, b = map(int, input.split())
-    print(gcd_naive(a, b))
+    print(better(a, b))
