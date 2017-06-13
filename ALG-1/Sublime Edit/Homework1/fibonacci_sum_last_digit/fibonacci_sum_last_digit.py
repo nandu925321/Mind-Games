@@ -26,10 +26,11 @@ def better (n):
     previous = 0
     current  = 1
     summ      = 1
-
-    for i in range(n - 1):
+    i = 0
+    while(i<n - 1):
         previous, current = current,( previous + current)%10
         summ += current
+        i = i + 1
 
     return summ % 10
 
@@ -58,4 +59,4 @@ def fib(n):
 if __name__ == '__main__':
     input = sys.stdin.readline()
     n = int(input)
-    print(fib(n))
+    print(better(n))
