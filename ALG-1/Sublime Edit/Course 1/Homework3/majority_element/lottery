@@ -1,0 +1,7 @@
+
+if __name__ == '__main__':
+    input = sys.stdin.read()
+    n,p, *a = list(map(int, input.split()))
+    print (n)
+    print (p)
+    print(a)
