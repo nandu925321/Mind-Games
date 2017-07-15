@@ -8,6 +8,7 @@ class TreeHeight:
         def read(self):
                 self.n = int(sys.stdin.readline())
                 self.parent = list(map(int, sys.stdin.readline().split()))
+                #print (self.parent)
 
         def compute_height(self):
                 # Replace this code with a faster implementation

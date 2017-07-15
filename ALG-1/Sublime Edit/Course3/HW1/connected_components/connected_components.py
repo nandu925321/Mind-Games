@@ -2,11 +2,35 @@
 
 import sys
 
+def explore (adj,visited,i):
+    if(visited[i]==1):
+        return 1
+    visited[i] = 1
+    for x in range(len(adj[i])):
+        if not (visited [adj[i][x]]):
+            if(explore(adj, visited,adj[i][x])):
+                return 1
+    return 0
+
 
 def number_of_components(adj):
     result = 0
     #write your code here
-    return result
+    # connected component number
+    # vertex with connected component array
+    # send this info to explore
+    con_num = 0
+    visited = [0] * len(adj)
+    V_c = len(adj)
+    for i in range(V_c):
+        if not visited[i]:
+            explore(adj,visited,i)
+            con_num = con_num + 1
+    
+    #component_number = [0] * len(adj)
+    #explore(adj,visited,con_num)
+    return con_num
+
 
 if __name__ == '__main__':
     input = sys.stdin.read()
