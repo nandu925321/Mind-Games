@@ -1,1 +1,1 @@
-# Mind-Games
+# Algorithm Problems and Puzzles
